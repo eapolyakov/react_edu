@@ -5,22 +5,22 @@ import {BrowserRouter, NavLink, Route} from "react-router-dom";
 
 const Profile = ()=>{
     return(
-        <h1>Profile</h1>
+        <h1>Мой профиль</h1>
     )
 }
 const Message = ()=>{
     return(
-        <h1>Messeges</h1>
+        <h1>Сообщения</h1>
     )
 }
 const Settings = ()=>{
     return(
-        <h1>Settings</h1>
+        <h1>Настройки</h1>
     )
 }
 const Friends = ()=>{
     return(
-        <h1>Friends</h1>
+        <h1>Мои друзья</h1>
     )
 }
 const Menu = ()=>{
@@ -49,7 +49,6 @@ function App() {
               </div>
             </BrowserRouter>
         </div>
-
   );
 }
 
