@@ -1,13 +1,10 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 import {BrowserRouter, NavLink, Route} from "react-router-dom";
+import Profile from "./components/Profile";
+import Friends from "./components/Friends";
 
-const Profile = ()=>{
-    return(
-        <h1>Мой профиль</h1>
-    )
-}
+
 const Message = ()=>{
     return(
         <h1>Сообщения</h1>
@@ -18,11 +15,7 @@ const Settings = ()=>{
         <h1>Настройки</h1>
     )
 }
-const Friends = ()=>{
-    return(
-        <h1>Мои друзья</h1>
-    )
-}
+
 const Menu = ()=>{
     return <div className="nav flex-column nav-pills" aria-orientation="vertical">
         <NavLink className="nav-link" to="profile">Профиль</NavLink>
@@ -32,7 +25,7 @@ const Menu = ()=>{
     </div>
 }
 
-function App() {
+function App(props) {
   return (
         <div className="container-fluid">
             <BrowserRouter>
@@ -41,10 +34,10 @@ function App() {
                   <Menu/>
                 </div>
                 <div className="col-sm-p">
-                  <Route path="/profile" component={Profile}/>
+                  <Route path="/profile" render={()=><Profile function ={props.functions.getUser}/>}/>
                   <Route path="/message" component={Message}/>
                   <Route path="/settings" component={Settings}/>
-                  <Route path="/friends" component={Friends}/>
+                  <Route path="/friends" render={()=><Friends function={props.functions.getUsers}/>}/>
                 </div>
               </div>
             </BrowserRouter>
