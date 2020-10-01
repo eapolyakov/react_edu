@@ -3,16 +3,12 @@ import './App.css';
 import {BrowserRouter, NavLink, Route} from "react-router-dom";
 import Profile from "./components/Profile";
 import Friends from "./components/Friends";
+import Settings from "./components/Settings";
 
 
 const Message = ()=>{
     return(
         <h1>Сообщения</h1>
-    )
-}
-const Settings = ()=>{
-    return(
-        <h1>Настройки</h1>
     )
 }
 
@@ -34,9 +30,9 @@ function App(props) {
                   <Menu/>
                 </div>
                 <div className="col-sm-p">
-                  <Route path="/profile" render={()=><Profile function ={props.functions.getUser}/>}/>
+                  <Route path="/profile" render={()=><Profile function={props.functions.getUser}/>}/>
                   <Route path="/message" component={Message}/>
-                  <Route path="/settings" component={Settings}/>
+                  <Route path="/settings" render={()=><Settings function={props.functions.getUser}/>}/>
                   <Route path="/friends" render={()=><Friends function={props.functions.getUsers}/>}/>
                 </div>
               </div>
