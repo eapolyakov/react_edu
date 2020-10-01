@@ -5,8 +5,10 @@ const Settings = (props) => {
   return (<div className="row">
     <div className="col-sm py-5 px-5">
       <div>
-        <img src={user.avatar} width="30%" alt=""/> [Изменить]
+        <img src={user.avatar} width="30%" alt=""/>
+        <div className="px-4">[Изменить]</div>
       </div>
+      <div className="col-sm py-5">
       <div>
         {user.name} [Изменить]
       </div>
@@ -16,6 +18,7 @@ const Settings = (props) => {
       <div>
         {user.email} [Изменить]
       </div>
+    </div>
     </div>
   </div>)
 }
