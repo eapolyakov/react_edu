@@ -72,6 +72,10 @@ export function getUser(userId) {
 return user;
 }
 
+export function changeInfo() {
+
+}
+
 export function getUsers() {
 
    return users;

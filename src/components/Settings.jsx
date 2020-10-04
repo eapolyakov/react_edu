@@ -1,24 +1,25 @@
-import React from 'react';
+import React, { useState } from 'react';
 
+function AddForm() {
+   const [newName, setNewName] = useState();
+   const [name, setName] = useState('');
 
-const ChangeNames = () =>{
-   return (
-      <div>
-         <input type="text" />
-         <input type="submit" value="Изменить" /*onSubmit={}*/ />
-      </div>
-   )
+  function handleChange(e) {
+    setName(e.target.value);
+    e.preventDefault();
+  }
+
+  function handleSubmit(e) {
+    setNewName(String(name));
+    e.preventDefault();
+  }
+
+  return <form onSubmit={handleSubmit}>
+  <input type="text" value={name} onChange={handleChange} />
+  <p>{newName}</p>
+  <input type="submit" value="Change" />
+  </form>;
 }
-
-const ChangeEmail = () =>{
-   return (
-      <div>
-         <input type="email" />
-         <input type="submit" value="Изменить" /*onSubmit={}*/ />
-      </div>
-   )
-}
-
 
 const Settings = (props) => {
    let user = props.function()
@@ -33,17 +34,15 @@ const Settings = (props) => {
          </div>
          <div className="col-sm py-3">
             <div className="py-2">
-               <h4>Вы</h4>
-               <div>{user.name}</div>
-               <ChangeNames />
-               <div>{user.lastname}</div>
-               <ChangeNames />
+               <h4>Ваши данные</h4>
+               <div>{user.name}<AddForm /></div>
+               <div>{user.lastname}<AddForm /> </div>
+
             </div>
             <div className="py-2">
                <h4>Ваш emeil</h4>
                <div>{user.email}</div>
-               <ChangeEmail />
-
+               <AddForm />
             </div>
          </div>
       </div>
