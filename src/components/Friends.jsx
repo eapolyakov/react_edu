@@ -5,9 +5,7 @@ const TableRow = (props) => {
   return <tr>
     <th scope="row">{props.index + 1}</th>
     <td>
-      <NavLink to={"/profile/" + props.id}>
-        {props.name} {props.lastname}
-      </NavLink>
+      <NavLink to={"/profile/" + props.id}>{props.name} {props.lastname}</NavLink>
     </td>
   </tr>
 }
